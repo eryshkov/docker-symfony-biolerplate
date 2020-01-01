@@ -1,6 +1,15 @@
 Mailer project on base [Nano Ninja Docker Boilerplate](https://github.com/nanoninja/docker-nginx-php-mysql)
 
 ## Use Docker commands
+### Run
+```
+docker-compose up -d
+```
+
+### Stop
+```
+docker-compose down -v
+```
 
 ### Composer install
 ```
@@ -14,14 +23,13 @@ docker-compose exec php php ./bin/console doctrine:migrations:migrate
 docker-compose exec php php ./bin/console doctrine:fixtures:load
 ```
 
-### Run
+### Cache clear
 ```
-docker-compose up -d
+docker-compose exec php php ./bin/console cache:clear
 ```
-
-### Stop
+### Cache warm
 ```
-docker-compose down -v
+docker-compose exec php php ./bin/console cache:warmup
 ```
 
 ### Connecting MySQL from [PDO](http://php.net/manual/en/book.pdo.php)
